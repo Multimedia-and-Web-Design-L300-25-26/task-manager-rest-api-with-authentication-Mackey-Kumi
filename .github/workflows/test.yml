@@ -19,5 +19,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create .env.test
+        run: |
+          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> .env.test
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env.test
+
       - name: Run tests
         run: npm test
