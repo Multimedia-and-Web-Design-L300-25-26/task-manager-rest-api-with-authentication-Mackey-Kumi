@@ -13,16 +13,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - name: Install dependencies
-      run: npm install
-    - name: Create .env.test
-      run: |
-        echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> .env.test
-        echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env.test
     - name: Run Backend Tests
       id: run-backend-tests
       uses: classroom-resources/autograding-command-grader@v1
